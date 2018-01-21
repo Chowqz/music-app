@@ -19,7 +19,7 @@
         <view class="recommend-list" wx:if="{{request.Recommend}}">
             <text class="list-title">热门歌单</text>
             <view class="list-wrapper">
-                <view class="list-item" hover-class="songSheet-hover" bindtap="goRecDetail" wx:for="{{songList}}" wx:key="unquire" data-id="{{item.id}}">
+                <view class="list-item" hover-class="songSheet-hover" wx:for="{{songList}}" wx:key="unquire" data-id="{{item.id}}">
                     <view class="img-box">
                         <image src="{{item.picUrl}}" class="rec-img" mode="widthFix"></image>
                         <view class="listen-count">
