@@ -73,7 +73,7 @@ function createSong(songItem) {
         singername: filterSinger(songItem.singer),
         album: songItem.album.title,
         songImg: `https://y.gtimg.cn/music/photo_new/T002R300x300M000${songItem.album.mid}.jpg?max_age=2592000`,
-        url: `http://ws.stream.qqmusic.qq.com/${songItem.id}.m4a?fromtag=46`,
+        url: `http://100.100.1.10:8081/C400${songItem.songmid}.m4a`,
         collectFlag: false
     }
     return song;

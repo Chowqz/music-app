@@ -16,6 +16,7 @@ function initAudio(pageObj) {
     })
     isCollected(pageObj);
     playFirstTime = true;
+    // console.log(pageObj.data.currentSong.url);
     audio.src = pageObj.data.currentSong.url;
     // audio.startTime = 180;
     audio.title = pageObj.data.currentSong.songname;
@@ -33,14 +34,13 @@ function getLyric(pageObj) {
     eObj = pageObj;
     let mid = pageObj.data.currentSong.songid;
     wx.request({
-        url: 'https://route.showapi.com/213-2',
-        data: {
-            showapi_appid: '44778',
-            showapi_sign: 'a484f893eef54e2680834e48e6fbdb18',
-            musicid: mid
-        },
+        url: `https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric.fcg?mina=1&music_uin=1152921504720400615&music_key=F51A1608EA83B9DCC89409758D8C752379F85AD91BE13CB2718DF1BE42F13C9A&nobase64=1&musicid=${mid}`,
         success: function(res) {
-            if(res.data.showapi_res_body.ret_code!=0){
+            let resData=res.data;
+            resData=resData.split('MusicJsonCallback(')[1]
+            resData=resData.substr(0,resData.length-1);
+            resData=JSON.parse(resData);
+            if(resData.code!=0){
                 let line={
                     time: 0,
                     txt: '该歌曲暂无歌词'
@@ -50,13 +50,13 @@ function getLyric(pageObj) {
                 })
                 return;
             }
-            let lyric = res.data.showapi_res_body.lyric;
+            let lyric = resData.lyric;
             lyric = lyric.replace(/&#(\d+);/g, (str, match) => String.fromCharCode(match));
             lyricObj = new Lyric(lyric, handleLyric);
             if(lyricObj.lines.length==0){
                 let line={
                     time: 0,
-                    txt: res.data.showapi_res_body.lyric_txt.replace(/(^\s*)|(\s*$)/g, "")
+                    txt: lyric.replace(/\[00:00:00]/g, "")
                 };
                 lyricObj.lines=[line];
             }
