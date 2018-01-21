@@ -1,0 +1,21 @@
+/**about.wxss**/
+.logo{
+	display: block;
+	width: 60px;
+	height: 60px;
+	margin: 30px auto 20px;
+}
+.title{
+	color: #003151;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+.about-text{
+	color: #333;
+	font-size: 14px;
+	text-indent: 2em;
+	line-height: 26px;
+	padding: 0 20px;
+	margin-top: 15px;
+}

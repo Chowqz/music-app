@@ -1,0 +1,267 @@
+/**player.wxss**/
+
+.player {
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 150;
+}
+.init-hide{
+    display: none;
+}
+.player-show{
+    display: block;
+    animation: showPlayer 0.3s linear infinite;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+}
+.player-hide{
+    display: none;
+    animation: hidePlayer 0.3s linear infinite;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+}
+@keyframes showPlayer {
+    0% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+}
+@keyframes hidePlayer {
+    0% {
+        display: block;
+        transform: translate(0,0);
+    }
+    100% {
+        display: none;
+        transform: translate(0,100%);
+    }
+}
+
+.music-bg {
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: blur(15px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.player .song-info {
+    overflow: hidden;
+    position: relative;
+}
+
+.icon-hide {
+    color: #31C27C;
+    font-size: 24px;
+    padding: 10px;
+    position: absolute;
+    top: 8px;
+    left: 14px;
+    z-index: 100;
+}
+
+.player .song-name,
+.player .singer-name {
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 10%;
+}
+
+.player .song-name {
+    font-size: 18px;
+    line-height: 40px;
+}
+
+.player .singer-name {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.player-swiper {
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    bottom: 150px;
+}
+
+.player-swiper swiper {
+    height: 100%;
+}
+.player-swiper swiper-item{
+    box-sizing: border-box;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+.player-swiper .wx-swiper-dots.wx-swiper-dots-horizontal{
+    margin-bottom: -10px; 
+}
+
+.cd-box{
+	width: 100%;
+	height: 0;
+	padding-top: 61.11%;
+	position: relative;
+}
+.cd-rotate{
+	width: 61.11%;
+	height: 100%;
+	box-sizing: border-box;
+	border: 6px solid rgba(255,255,255,0.1);
+	overflow: hidden;
+	border-radius: 50%;
+	position: absolute;
+	top: 0;
+	left: 19.445%;
+	margin: 0 auto;
+	animation: cdRotate 20s linear infinite;
+}
+.cd-pause{
+	animation-play-state: paused;
+}
+@keyframes cdRotate{
+	0%{
+		transform: rotate(0);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}
+.cd-rotate .cd-img{
+	width: 100%;
+	height: 100%;
+}
+.current-lyric{
+    color: #31C27C;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 15px;
+}
+.lyric-wrapper{
+    height: 100%;
+}
+.lyric-line{
+    height: 40px;
+    color: rgba(255,255,255,.6);
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.lyric-line-active{
+    color: #31C27C;
+}
+.lyric-none{
+    height: 100%;
+    color: rgba(255,255,255,.6);
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.lyric-none:after{
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: "";
+}
+.control {
+    width: 100%;
+    position: absolute;
+    bottom: 40px;
+}
+
+.control-top {
+    display: flex;
+    align-items: center;
+    width: 86%;
+    margin: 0 auto;
+}
+
+.control-top .time {
+    width: 40px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+}
+
+.time-l {
+    text-align: left;
+}
+
+.time-r {
+    text-align: right;
+}
+
+.progress-bar {
+    flex: 1;
+}
+
+.control-bottom {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.icon-box-left,
+.icon-box-right {
+    flex: 1;
+}
+
+.icon-box-left {
+    text-align: right;
+}
+
+.icon-box-right {
+    text-align: left;
+}
+
+.icon-box-center {
+    flex: 1;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.control .icon-play,
+.control .icon-pause {
+    color: #31C27C;
+    font-size: 50px;
+}
+
+.control .icon-list-loop,
+.control .icon-single-loop,
+.control .icon-random,
+.control .icon-collect {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 30px;
+}
+.control .icon-collect-active{
+    color: #fc6264;
+    font-size: 30px;
+}
+.control .icon-prev,
+.control .icon-next {
+    color: #31C27C;
+    font-size: 40px;
+}

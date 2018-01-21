@@ -1,0 +1,22 @@
+<!--personal.wxml-->
+<template name="personal">
+	<scroll-view class="personal-wrappper" scroll-y="true" hidden="{{showIndex!=2}}">
+		<view class="personal-info">
+			<view class="info-avatar-wrapper">
+				<image src="{{avatar}}" class="info-avatar" mode="widthFix"></image>
+			</view>
+			<view class="info-nickname">——◆<text>{{nickName}}</text>◆——</view>
+		</view>
+		<view class="personal-tips" wx:if="{{!personalSongs.length}}">您还未收藏任何歌曲，赶紧去听歌吧！</view>
+		<view class="play-all" hover-class="navigator-hover" wx:if="{{personalSongs.length}}" bindtap="playThis" data-tag="personal"><text class="iconfont icon-play"></text><text>播放全部(共{{personalSongs.length}}首)</text></view>
+		<view class="personal-songs" wx:if="{{personalSongs.length}}">
+			<view class="personal-song" hover-class="navigator-hover" wx:for="{{personalSongs}}" wx:key="unquire" bindtap="playAfterInsert" data-song="{{item}}">
+				<view class="persoanl-song-text">
+					<text class="personal-songname">{{item.songname}}</text>
+					<text class="personal-singer">{{item.singername}}  ·  {{item.album}}</text>
+				</view>
+				<view class="iconfont icon-collect-active" catchtap="uncollect" data-song="{{item}}"></view>
+			</view>
+		</view>
+	</scroll-view>
+</template>

@@ -1,0 +1,144 @@
+/**search.wxss**/
+.search-wrapper{
+	height: 100%;
+}
+.search-top{
+	display: flex;
+	align-items: center;
+	padding: 20px 15px;
+}
+.search-input-wrapper{
+	flex: 1;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	background-color: #394754;
+	border-radius: 6px;
+}
+.search-input{
+	display: block;
+	flex: 1;
+	height: 100%;
+	color: #fff;
+	font-size: 14px;
+}
+.search-btn,.clear-btn{
+	padding: 5px 10px;
+}
+.cancel-btn{
+	height: 40px;
+	color: rgba(255,255,255,0.4);
+	font-size: 14px;
+	line-height: 40px;
+	padding: 0 5px 0 10px;
+}
+.search-content{
+	height: calc(100% - 80px);
+	overflow: hidden;
+}
+.search-content .loading-wrapper{
+	margin-top: 60px;
+}
+.hot-search{
+	padding: 0 20px;
+}
+.hot-title,.history-title{
+	color: rgba(255,255,255,0.6);
+	font-size: 14px;
+	line-height: 40px;
+}
+.hot-key{
+	margin-top: 10px;
+}
+.key-item{
+	display: inline-block;
+	color: rgba(255,255,255,0.6);
+	font-size: 14px;
+	background-color: #394754;
+	padding: 5px 10px;
+	margin: 0 20px 10px 0;
+	border-radius: 6px;
+}
+.search-history{
+	height: 100%;
+}
+.history-top{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+.clear-all{
+	color: #31C27C;
+	font-size: 14px;
+	line-height: 40px;
+}
+.history-bottom,.result{
+	background:linear-gradient(to right, #1d2b38 , #394754);
+}
+.history-item{
+	padding-left: 20px;
+}
+.history-item-inner{
+	display: flex;
+	align-items: center;
+	border-bottom:1px solid rgba(255, 255, 255, .1);
+}
+.search-word{
+	flex: 1;
+	color: #fff;
+	line-height: 40px;
+	font-size: 14px;
+}
+.history-item .icon-delete{
+	color: rgba(255,255,255,0.5);
+	font-size: 14px;
+	padding: 12px 20px 12px 12px;
+}
+.result{
+	height: 100%;
+}
+.result-item{
+	display: flex;
+	align-items: center;
+	height: 50px;
+	padding: 0 20px;
+	border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.icon-music{
+	color: rgba(255,255,255,1);
+	font-size: 20px;
+	margin-right: 20px;
+}
+.result-text{
+	flex: 1;
+	overflow: hidden;
+}
+.song-name{
+	display: block;
+	color: rgba(255,255,255,1);
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.singer-name{
+	display: block;
+	color: rgba(255,255,255,0.4);
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 6px;
+}
+.load-tips{
+	height: 50px;
+	color: #31C27C;
+	font-size: 14px;
+	text-align: center;
+	line-height: 50px;
+}
+.search-wrapper .navigator-hover{
+    /*color: #333;*/
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}

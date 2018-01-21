@@ -1,0 +1,89 @@
+/**personal.wxss**/
+.personal-wrappper{
+	height: 100%;
+}
+.personal-info{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 0;
+}
+.info-avatar-wrapper{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0 0 8px #31C27C;
+}
+.info-avatar{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.info-nickname{
+	color: #fff;
+	font-size: 14px;
+	margin-top: 15px;
+}
+.info-nickname text{
+	padding: 0 8px;
+}
+.personal-tips{
+	color: rgba(255,255,255,0.4);
+	font-size: 14px;
+	text-align: center;
+	margin-top: 30px;
+}
+.play-all{
+	display: flex;
+	align-items: center;
+	height: 46px;
+	background: linear-gradient(to right, #1d2b38 , #394754);
+	font-size: 14px;
+	padding-left:15px;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.play-all .icon-play{
+	color: #fff;
+	font-size: 20px;
+	margin-right: 10px;
+}
+.play-all text{
+	color: #fff;
+}
+/*我的歌曲列表*/
+.personal-song{
+	display: flex;
+	align-items: center;
+	background: linear-gradient(to right, #1d2b38 , #394754);
+	padding-left:15px;
+	border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+.personal-song .persoanl-song-text{
+	flex: 1;
+	padding: 8px 0;
+	overflow: hidden;
+}
+.personal-songname{
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.personal-singer{
+	display: block;
+	color: rgba(255,255,255,0.3);
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 5px;
+}
+.personal-song .icon-collect-active{
+	color: #fc6264;
+	font-size: 18px;
+	padding: 18px 16px 18px 6px;
+	margin-left: 30px;
+}

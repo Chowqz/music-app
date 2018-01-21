@@ -1,0 +1,16 @@
+/**loading.wxss**/
+.loading{
+	text-align: center;
+}
+.loading-animation{
+	display: block;
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+}
+.loading-text{
+	display: block;
+	color: rgba(255,255,255,0.5);
+	font-size: 16px;
+	margin-top: 10px;
+}

@@ -1,0 +1,44 @@
+<!--recommend.wxml-->
+<import src="../loading/loading.wxml" />
+<template name="recommend">
+    <scroll-view class="recommend-wrapper" scroll-y="true" hidden="{{showIndex!=0}}">
+        <view class="loading-wrapper" wx:if="{{!request.Recommend}}">
+            <template is="loading"></template>
+        </view>
+        <view class="banner" wx:if="{{request.Recommend}}">
+            <view class="banner-height">
+                <swiper indicator-dots="true" autoplay="true" indicator-color="rgba(144,144,144,.8)" indicator-active-color="#fff" interval="3000" duration="300">
+                    <block wx:for="{{slider}}" wx:key="unquire">
+                        <swiper-item>
+                            <image src="{{item.picUrl}}" class="slide-image" mode="widthFix"></image>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+        </view>
+        <view class="recommend-list" wx:if="{{request.Recommend}}">
+            <text class="list-title">热门歌单</text>
+            <view class="list-wrapper">
+                <view class="list-item" hover-class="songSheet-hover" bindtap="goRecDetail" wx:for="{{songList}}" wx:key="unquire" data-id="{{item.id}}">
+                    <view class="img-box">
+                        <image src="{{item.picUrl}}" class="rec-img" mode="widthFix"></image>
+                        <view class="listen-count">
+                            <text class="iconfont icon-listen"></text>{{item.accessnum}}万</view>
+                        <view class="iconfont icon-play"></view>
+                    </view>
+                    <text class="rec-name">{{item.songListDesc}}</text>
+                    <text class="rec-author">{{item.songListAuthor}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="about-us">
+            <navigator url="/pages/about/about">
+                <image class="logo" src="../../common/images/logo-text.png" mode="widthFix"></image>
+            </navigator>
+            <view class="click-tips">
+                <image src="../../common/images/click.gif" mode="widthFix"></image>
+                <text>戳一下又不会怀孕</text>
+            </view>
+        </view>
+    </scroll-view>
+</template>

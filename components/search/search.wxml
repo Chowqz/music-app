@@ -1,0 +1,52 @@
+<!--search.wxml-->
+<import src="../loading/loading.wxml" />
+<template name="search">
+    <view class="search-wrapper" hidden="{{showIndex!=3}}">
+        <view class="search-top">
+            <view class="search-input-wrapper">
+                <view class="search-btn" bindtap="search">
+                    <icon type="search" size="20" color="rgba(255,255,255,0.3)" />
+                </view>
+                <input class="search-input" bindinput="getInput" bindfocus="hideHot" placeholder="搜索歌曲、歌手" confirm-type="search" bindconfirm="search" />
+            </view>
+            <view class="cancel-btn" bindtap="cancelToggle" hidden="{{!cancelShow && !songlist.length}}">取消</view>
+        </view>
+        <view class="search-content">
+            <view class="loading-wrapper" wx:if="{{!request.Search}}">
+                <template is="loading"></template>
+            </view>
+            <view class="hot-search" hidden="{{cancelShow || songlist.length}}" wx:if="{{request.Search}}">
+                <view class="hot-title">热门搜索</view>
+                <view class="hot-key">
+                    <view class="key-item" hover-class="navigator-hover" bindtap="searchThis" data-keyword="{{item.k}}" wx:for="{{hotkey}}" wx:key="unquire">{{item.k}}</view>
+                </view>
+            </view>
+            <scroll-view class="search-history" scroll-y="true" hidden="{{!historyShow || !searchHistory.length || songlist.length}}" scroll-top="{{!searchHistory.length?0:''}}">
+                <view class="history-top">
+                    <view class="history-title">搜索历史</view>
+                    <view class="clear-all" bindtap="clearHistory">清空历史</view>
+                </view>
+                <view class="history-bottom">
+                    <view class="history-item" hover-class="navigator-hover" bindtap="searchThis" data-keyword="{{item}}" wx:for="{{searchHistory}}" wx:key="unquire">
+                        <view class="history-item-inner">
+                            <view class="search-word">{{item}}</view>
+                            <view class="iconfont icon-delete" catchtap="delThis" data-index="{{index}}"></view>
+                        </view>
+                    </view>
+                </view>
+            </scroll-view>
+            <scroll-view class="result" scroll-y="true" wx:if="{{songlist.length}}" scroll-top="0" bindscrolltolower="loadMore">
+                <view class="result-item" hover-class="navigator-hover" bindtap="playAfterInsert" wx:for="{{songlist}}" wx:key="unquire" data-song="{{item}}">
+                    <view class="iconfont icon-music"></view>
+                    <view class="result-text">
+                        <text class="song-name">{{item.songname}}</text>
+                        <text class="singer-name">{{
+                        item.singername
+                        }}  ·  {{item.album}}</text>
+                    </view>
+                </view>
+                <view class="load-tips">{{!loading&&!dataEnd?'上滑加载更多':''}}{{loading?'加载中…':'    '}}{{dataEnd?'没有更多相关内容了':''}}</view>
+            </scroll-view>
+        </view>
+    </view>
+</template>

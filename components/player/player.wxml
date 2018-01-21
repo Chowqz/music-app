@@ -1,0 +1,56 @@
+<!--player.wxml-->
+<template name="player">
+    <view class="player" hidden="{{!playerToggle}}" >
+        <view class="music-bg" style="background-image: url({{songImg}});"></view>
+        <viwe class="song-info">
+            <view class="iconfont icon-hide" bindtap="togglePlayer"></view>
+            <view class="song-name">{{songname}}</view>
+            <view class="singer-name">{{singername}}</view>
+        </viwe>
+        <view class="player-swiper" id="player-swiper">
+            <swiper indicator-dots="true" indicator-color="rgba(144,144,144,.8)" indicator-active-color="#fff" duration="300">
+                <swiper-item>
+                    <view class="cd-box">
+                        <view class="cd-rotate {{playFlag?'':'cd-pause'}}">
+                            <image class="cd-img" src="{{songImg}}"></image>
+                        </view>
+                    </view>
+                    <view class="current-lyric">{{lyric[lineIndex].txt}}</view>
+                </swiper-item>
+                <swiper-item>
+                    <scroll-view class="lyric-wrapper" scroll-y scroll-top="{{scrollTop}}" scroll-with-animation="true" hidden="{{lyric.length<=1}}">
+                        <view class="lyric-line {{index==lineIndex?'lyric-line-active':''}}" wx:for="{{lyric}}" wx:key="unquire">{{item.txt}}</view>
+                        <view class="placeholder" style="height: {{middlePos*40}}px;"></view>
+                    </scroll-view>
+                    <view class="lyric-none" wx:for="{{lyric}}" wx:key="unquire" hidden="{{lyric.length>1}}">{{item.txt}}</view>
+                </swiper-item>
+            </swiper>
+        </view>
+        <view class="control">
+            <view class="control-top">
+                <view class="time time-l">{{currentTime}}</view>
+                <view class="progress-bar">
+                    <progress percent="{{percent}}" stroke-width="4" activeColor="#31C27C" backgroundColor="rgba(255,255,255,.2)" />
+                </view>
+                <view class="time time-r">{{duration}}</view>
+            </view>
+            <view class="control-bottom">
+                <view class="icon-box-left">
+                    <view class="iconfont {{playMode==0?'icon-list-loop':''}} {{playMode==1?'icon-single-loop':''}} {{playMode==2?'icon-random':''}}" bindtap="changePlayMode"></view>
+                </view>
+                <view class="icon-box-left">
+                    <view class="iconfont icon-prev" bindtap="tabSong" data-dir="prev"></view>
+                </view>
+                <view class="icon-box-center">
+                    <view class="iconfont {{playFlag?'icon-pause':'icon-play'}}" bindtap="playToggle"></view>
+                </view>
+                <view class="icon-box-right">
+                    <view class="iconfont icon-next" bindtap="tabSong" data-dir="next"></view>
+                </view>
+                <view class="icon-box-right">
+                    <view class="iconfont {{collectFlag?'icon-collect-active':'icon-collect'}}" catchtap="collectToggle"></view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>

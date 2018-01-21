@@ -1,0 +1,17 @@
+<!--toplist.wxml-->
+<import src="../loading/loading.wxml" />
+<template name="toplist">
+	<scroll-view class="toplist-wrapper" scroll-y="true" hidden="{{showIndex!=1}}">
+		<view class="loading-wrapper" wx:if="{{!request.Toplist}}">
+            <template is="loading"></template>
+        </view>
+		<view class="toplist-item" hover-class="songSheet-hover" bindtap="goTopDetail" wx:for="{{topList}}" wx:key="unquire" data-id="{{item.id}}" wx:if="{{request.Toplist}}">
+			<view class="toplist-img-box">
+				<image class="toplist-img" src="{{item.picUrl}}" mode="aspectFit"></image>
+			</view>
+			<view class="toplist-text">
+				<text class="toplist-songlist-item" wx:for="{{item.songList}}" wx:key="unquire" wx:for-index="songIndex" wx:for-item="songItem">{{songIndex+1+" "+songItem.songname+songItem.singername}}</text>
+			</view>
+		</view>
+    </scroll-view>
+</template>

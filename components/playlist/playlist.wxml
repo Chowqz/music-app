@@ -1,0 +1,26 @@
+<!--playlist.wxml-->
+<template name="playlist">
+	<view class="mask" hidden="{{!isShow||!playlist.length}}"></view>
+	<view class="playlist-wrapper" hidden="{{!isShow||!playlist.length}}">
+		<view class="playlist-top">
+			<view class="playlist-top-l">播放队列<text>（{{playlist.length}}）</text></view>
+			<view class="playlist-top-r iconfont icon-clear" hover-class="icon-clear-touch" catchtap="clearPlaylist"></view>
+		</view>
+		<scroll-view class="playlist-middle" scroll-y="true" scroll-top="{{playlistScroll}}" scroll-with-animation="true">
+			<view class="playlist-item" hover-class="navigator-hover" wx:for="{{playlist}}" wx:key="unquire" bindtap="tabInPlaylist" data-song="{{item}}">
+				<view class="playlist-text {{item.songid==currentSong.songid?'playlist-item-active':''}}">
+					<text class="playlist-songname">{{item.songname}}</text>
+					<text class="playlist-singer"> - {{item.singername}}</text>
+				</view>
+				<view class="ani-playing" wx:if="{{item.songid==currentSong.songid && playFlag}}">
+					<view class="ani-item"></view>
+					<view class="ani-item"></view>
+					<view class="ani-item"></view>
+					<view class="ani-item"></view>
+				</view>
+				<view class="iconfont icon-delete" data-index="{{index}}" catchtap="delFromPlaylist"></view>
+			</view>
+		</scroll-view>
+		<view class="playlist-bottom" hover-class="navigator-hover" bindtap="togglePlaylist">关闭</view>
+	</view>
+</template>

@@ -1,0 +1,25 @@
+<!--songlist.wxml-->
+<import src="../loading/loading.wxml" />
+<template name="songlist">
+	<view class="songlist-loading" wx:if="{{!detailLoading}}">
+        <template is="loading"></template>
+    </view>
+	<view class="songlist-wrapper" style="background-image: url({{bgImage}});" wx:if="{{detailLoading}}">
+		<view class="songlist-top">
+			<view class="iconfont icon-back" bindtap="back"></view>
+			<view class="list-name">{{listname}}</view>
+		</view>
+	 	<scroll-view class="songlistlist-scroll" scroll-y="true" hidden="{{showIndex!=4}}" >
+	 		<view class="bg-box"></view>
+		 	<view class="song-list">
+		 		<view class="song" hover-class="navigator-hover" wx:for="{{songs}}" wx:key="unquire" bindtap="playThis" data-tag="songItem" data-index="{{index}}">
+		 			<view class="song-index">{{index+1}}</view>
+		 			<view class="song-text">
+		 				<text class="song-name">{{item.songname}}</text>
+		 				<text class="singer">{{item.singername}}  ·  {{item.album}}</text>
+		 			</view>
+		 		</view>
+		 	</view>
+	 	</scroll-view>
+	</view>
+</template>

@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<import src="../../components/recommend/recommend.wxml" />
+<import src="../../components/toplist/toplist.wxml" />
+<import src="../../components/personal/personal.wxml" />
+<import src="../../components/search/search.wxml" />
+<import src="../../components/songlist/songlist.wxml" />
+<import src="../../components/player/player.wxml" />
+<import src="../../components/playlist/playlist.wxml" />
+<view class="rect" id="rect"></view>
+<view class="tabBar">
+	<view class="tab-item {{showIndex==0?'tab-active':''}}" data-index="0" bindtap="tab">推荐</view>
+	<view class="tab-item {{showIndex==1?'tab-active':''}}" data-index="1" bindtap="tab">排行榜</view>
+	<view class="tab-item {{showIndex==2?'tab-active':''}}" data-index="2" bindtap="tab">我的歌曲</view>
+	<view class="tab-item {{showIndex==3?'tab-active':''}}" data-index="3" bindtap="tab">搜索</view>
+</view>
+<view class="content {{!playList.playlist.length?'no-padding':''}}" hidden="{{showIndex>3}}">
+    <template is="recommend" data="{{...recommend,showIndex,request}}"></template>
+    <template is="toplist" data="{{showIndex,topList,request}}"></template>
+    <template is="personal" data="{{showIndex,...userInfo,personalSongs}}"></template>
+    <template is="search" data="{{showIndex,hotkey,...searchResult,searchHistory,cancelShow,historyShow,request}}"></template>
+</view>
+<view class="detail {{!playList.playlist.length?'none-padding':''}}" hidden="{{showIndex!=4}}">
+	<template is="songlist" data="{{...songList,showIndex,detailLoading}}"></template>
+</view>
+<view class="min-player" id="min-player" bindtap="togglePlayer" hidden="{{!playList.playlist.length}}">
+	<view class="song-info">
+		<image class="song-info-img" src="{{currentSong.songImg}}"></image>
+		<view class="song-info-text">
+			<text class="songname">{{currentSong.songname}}</text>
+			<text class="singername">{{currentSong.singername}}</text>
+		</view>
+	</view>
+	<view class="play-btn iconfont {{playFlag?'icon-pause':'icon-play'}}" catchtap="playToggle"></view>
+	<view class="list-btn iconfont icon-music-list" catchtap="togglePlaylist"></view>
+</view>
+<template is="player" data="{{...currentSong,playerToggle,playFlag,duration,currentTime,percent,lyric,lineIndex,scrollTop,middlePos,playMode}}"></template>
+<template is="playlist" data="{{...playList,playFlag,currentIndex,currentSong,playlistScroll}}"></template>

@@ -1,0 +1,6 @@
+<!--about.wxml-->
+<view class="about">
+	<image src="../../common/images/logo.png" class="logo" mode="widthFix"></image>
+	<view class="title">关于『享听music』</view>
+	<view class="about-text">『享听music』小程序由Hyacinth冂十一囗个人独立开发，仅供学习研究，不用于任何商业用途，其最终解释权归本人所有。项目的所有源码已开源至本人GitHub的仓库上，觉得还不错的朋友请您给个star，不胜感激！</view>
+</view>

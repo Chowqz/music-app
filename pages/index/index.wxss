@@ -1,0 +1,132 @@
+/**index.wxss**/
+@import "../../common/iconfont/iconfont.wxss";
+@import "../../components/recommend/recommend.wxss";
+@import "../../components/toplist/toplist.wxss";
+@import "../../components/personal/personal.wxss";
+@import "../../components/search/search.wxss";
+@import "../../components/songlist/songlist.wxss";
+@import "../../components/player/player.wxss";
+@import "../../components/playlist/playlist.wxss";
+@import "../../components/loading/loading.wxss";
+
+page {
+    height: 100%;
+    background-color: #192c3b;
+}
+.rect{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+}
+.tabBar {
+    display: flex;
+    width: 100%;
+    height: 44px;
+    background-color: #192c3b;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.tab-item {
+    width: 25%;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    line-height: 42px;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+}
+
+.tabBar .tab-active {
+    color: #31C27C;
+    border-bottom: 2px solid #31C27C;
+}
+
+.content {
+    height: 100%;
+    background-color: #192c3b;
+    box-sizing: border-box;
+    padding: 44px 0 50px;
+}
+.no-padding{
+    padding: 44px 0 0;
+}
+
+.detail {
+    width: 100%;
+    height: 100%;
+    background-color: #192c3b;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.none-padding{
+    padding: 0;
+}
+
+.min-player {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background-color: #1c232d;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.min-player .song-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    padding: 0 40rpx;
+    overflow: hidden;
+}
+
+.song-info-img {
+	display: block;
+    width: 40px;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 50%;
+}
+.song-info-text{
+	flex: 1;
+	padding-left: 20rpx;
+	overflow: hidden;
+} 
+.songname{
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.singername{
+	display: block;
+	color: rgba(255,255,255,0.3);
+	font-size: 12px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	margin-top: 6px;
+}
+
+.play-btn,
+.list-btn {
+    width: 30px;
+    color: #31C27C;
+    font-size: 30px;
+    padding: 8px 10px;
+}
+.list-btn{
+    font-size: 25px;
+	margin-top: 2px;
+}

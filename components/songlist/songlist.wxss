@@ -1,0 +1,102 @@
+/**songlist.wxss**/
+.songlist-loading{
+    margin-top: 80px;
+}
+.songlist-wrapper {
+    height: 100%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+.songlist-top {
+    height: 40px;
+    position: relative;
+}
+
+.icon-back {
+    color: #31C27C;
+    font-size: 22px;
+    padding: 8px;
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+
+.list-name {
+    max-width: 80%;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 auto;
+}
+
+.songlistlist-scroll {
+    height: calc(100% - 40px);
+}
+
+.bg-box {
+    height: 0;
+    padding-top: calc(70% - 40px);
+}
+
+.song-list {
+    background: linear-gradient(to right, #1d2b38 , #394754);
+    padding: 20px 0 0;
+}
+
+.song {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 64px;
+    box-sizing: border-box;
+    padding-left: 20px;
+}
+
+.song-index {
+    width: 24px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.song-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    padding-right: 40rpx;
+}
+
+.song-text .song-name,
+.song-text .singer {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'PingFang SC', 'STHeitiS/C-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+    line-height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.song-text .singer {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 13px;
+    line-height: 24px;
+}
+
+.songlist-wrapper .navigator-hover {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}
